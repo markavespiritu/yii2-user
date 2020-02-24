@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the markavespirtu project.
+ * This file is part of the markavespiritu project.
  *
- * (c) markavespirtu project <http://github.com/markavespirtu/>
+ * (c) markavespiritu project <http://github.com/markavespiritu/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace markavespirtu\user\controllers;
+namespace markavespiritu\user\controllers;
 
-use markavespirtu\user\Finder;
-use markavespirtu\user\models\Account;
-use markavespirtu\user\models\LoginForm;
-use markavespirtu\user\models\User;
-use markavespirtu\user\Module;
-use markavespirtu\user\traits\AjaxValidationTrait;
-use markavespirtu\user\traits\EventTrait;
+use markavespiritu\user\Finder;
+use markavespiritu\user\models\Account;
+use markavespiritu\user\models\LoginForm;
+use markavespiritu\user\models\User;
+use markavespiritu\user\Module;
+use markavespiritu\user\traits\AjaxValidationTrait;
+use markavespiritu\user\traits\EventTrait;
 use yii\authclient\AuthAction;
 use yii\authclient\ClientInterface;
 use yii\filters\AccessControl;
@@ -40,49 +40,49 @@ class SecurityController extends Controller
 
     /**
      * Event is triggered before logging user in.
-     * Triggered with \markavespirtu\user\events\FormEvent.
+     * Triggered with \markavespiritu\user\events\FormEvent.
      */
     const EVENT_BEFORE_LOGIN = 'beforeLogin';
 
     /**
      * Event is triggered after logging user in.
-     * Triggered with \markavespirtu\user\events\FormEvent.
+     * Triggered with \markavespiritu\user\events\FormEvent.
      */
     const EVENT_AFTER_LOGIN = 'afterLogin';
 
     /**
      * Event is triggered before logging user out.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_BEFORE_LOGOUT = 'beforeLogout';
 
     /**
      * Event is triggered after logging user out.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_AFTER_LOGOUT = 'afterLogout';
 
     /**
      * Event is triggered before authenticating user via social network.
-     * Triggered with \markavespirtu\user\events\AuthEvent.
+     * Triggered with \markavespiritu\user\events\AuthEvent.
      */
     const EVENT_BEFORE_AUTHENTICATE = 'beforeAuthenticate';
 
     /**
      * Event is triggered after authenticating user via social network.
-     * Triggered with \markavespirtu\user\events\AuthEvent.
+     * Triggered with \markavespiritu\user\events\AuthEvent.
      */
     const EVENT_AFTER_AUTHENTICATE = 'afterAuthenticate';
 
     /**
      * Event is triggered before connecting social network account to user.
-     * Triggered with \markavespirtu\user\events\AuthEvent.
+     * Triggered with \markavespiritu\user\events\AuthEvent.
      */
     const EVENT_BEFORE_CONNECT = 'beforeConnect';
 
     /**
      * Event is triggered before connecting social network account to user.
-     * Triggered with \markavespirtu\user\events\AuthEvent.
+     * Triggered with \markavespiritu\user\events\AuthEvent.
      */
     const EVENT_AFTER_CONNECT = 'afterConnect';
 

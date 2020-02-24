@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the markavespirtu project.
+ * This file is part of the markavespiritu project.
  *
- * (c) markavespirtu project <http://github.com/markavespirtu/>
+ * (c) markavespiritu project <http://github.com/markavespiritu/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace markavespirtu\user\controllers;
+namespace markavespiritu\user\controllers;
 
-use markavespirtu\user\filters\AccessRule;
-use markavespirtu\user\Finder;
-use markavespirtu\user\models\Profile;
-use markavespirtu\user\models\User;
-use markavespirtu\user\models\UserSearch;
-use markavespirtu\user\helpers\Password;
-use markavespirtu\user\Module;
-use markavespirtu\user\traits\EventTrait;
+use markavespiritu\user\filters\AccessRule;
+use markavespiritu\user\Finder;
+use markavespiritu\user\models\Profile;
+use markavespiritu\user\models\User;
+use markavespiritu\user\models\UserSearch;
+use markavespiritu\user\helpers\Password;
+use markavespiritu\user\Module;
+use markavespiritu\user\traits\EventTrait;
 use yii;
 use yii\base\ExitException;
 use yii\base\Model;
@@ -45,97 +45,97 @@ class AdminController extends Controller
 
     /**
      * Event is triggered before creating new user.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_BEFORE_CREATE = 'beforeCreate';
 
     /**
      * Event is triggered after creating new user.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_AFTER_CREATE = 'afterCreate';
 
     /**
      * Event is triggered before updating existing user.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_BEFORE_UPDATE = 'beforeUpdate';
 
     /**
      * Event is triggered after updating existing user.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_AFTER_UPDATE = 'afterUpdate';
 
     /**
      * Event is triggered before impersonating as another user.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_BEFORE_IMPERSONATE = 'beforeImpersonate';
 
     /**
      * Event is triggered after impersonating as another user.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_AFTER_IMPERSONATE = 'afterImpersonate';
 
     /**
      * Event is triggered before updating existing user's profile.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_BEFORE_PROFILE_UPDATE = 'beforeProfileUpdate';
 
     /**
      * Event is triggered after updating existing user's profile.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_AFTER_PROFILE_UPDATE = 'afterProfileUpdate';
 
     /**
      * Event is triggered before confirming existing user.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_BEFORE_CONFIRM = 'beforeConfirm';
 
     /**
      * Event is triggered after confirming existing user.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_AFTER_CONFIRM = 'afterConfirm';
 
     /**
      * Event is triggered before deleting existing user.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_BEFORE_DELETE = 'beforeDelete';
 
     /**
      * Event is triggered after deleting existing user.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_AFTER_DELETE = 'afterDelete';
 
     /**
      * Event is triggered before blocking existing user.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_BEFORE_BLOCK = 'beforeBlock';
 
     /**
      * Event is triggered after blocking existing user.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_AFTER_BLOCK = 'afterBlock';
 
     /**
      * Event is triggered before unblocking existing user.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_BEFORE_UNBLOCK = 'beforeUnblock';
 
     /**
      * Event is triggered after unblocking existing user.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_AFTER_UNBLOCK = 'afterUnblock';
 
@@ -366,7 +366,7 @@ class AdminController extends Controller
     }
 
     /**
-     * If "markavespirtu/yii2-rbac" extension is installed, this page displays form
+     * If "markavespiritu/yii2-rbac" extension is installed, this page displays form
      * where user can assign multiple auth items to user.
      *
      * @param int $id
@@ -376,7 +376,7 @@ class AdminController extends Controller
      */
     public function actionAssignments($id)
     {
-        if (!isset(\Yii::$app->extensions['markavespirtu/yii2-rbac'])) {
+        if (!isset(\Yii::$app->extensions['markavespiritu/yii2-rbac'])) {
             throw new NotFoundHttpException();
         }
         Url::remember('', 'actions-redirect');

@@ -1,7 +1,7 @@
 <?php
 
 use yii\db\Schema;
-use yii\db\Migration;
+use markavespiritu\user\migrations\Migration;
 
 class m161027_032449_create_user_info extends Migration
 {

@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the markavespirtu project.
+ * This file is part of the markavespiritu project.
  *
- * (c) markavespirtu project <http://github.com/markavespirtu/>
+ * (c) markavespiritu project <http://github.com/markavespiritu/>
  *
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
-namespace markavespirtu\user\commands;
+namespace markavespiritu\user\commands;
 
-use markavespirtu\user\Finder;
+use markavespiritu\user\Finder;
 use Yii;
 use yii\console\Controller;
 use yii\helpers\Console;
@@ -19,7 +19,7 @@ use yii\helpers\Console;
 /**
  * Deletes a user.
  *
- * @property \markavespirtu\user\Module $module
+ * @property \markavespiritu\user\Module $module
  *
  * @author Dmitry Erofeev <dmeroff@gmail.com>
  */

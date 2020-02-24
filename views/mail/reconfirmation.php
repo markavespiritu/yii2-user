@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the markavespirtu project.
+ * This file is part of the markavespiritu project.
  *
- * (c) markavespirtu project <http://github.com/markavespirtu>
+ * (c) markavespiritu project <http://github.com/markavespiritu>
  *
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
@@ -12,7 +12,7 @@
 use yii\helpers\Html;
 
 /**
- * @var markavespirtu\user\models\Token $token
+ * @var markavespiritu\user\models\Token $token
  */
 ?>
 <p style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.6; font-weight: normal; margin: 0 0 10px; padding: 0;">

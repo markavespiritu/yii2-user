@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the markavespirtu project.
+ * This file is part of the markavespiritu project.
  *
- * (c) markavespirtu project <http://github.com/markavespirtu>
+ * (c) markavespiritu project <http://github.com/markavespiritu>
  *
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
@@ -12,9 +12,9 @@
 use yii\helpers\Html;
 
 /**
- * @var markavespirtu\user\Module          $module
- * @var markavespirtu\user\models\User     $user
- * @var markavespirtu\user\models\Password $password
+ * @var markavespiritu\user\Module          $module
+ * @var markavespiritu\user\models\User     $user
+ * @var markavespiritu\user\models\Password $password
  */
 
 ?>

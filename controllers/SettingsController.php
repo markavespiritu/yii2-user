@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the markavespirtu project.
+ * This file is part of the markavespiritu project.
  *
- * (c) markavespirtu project <http://github.com/markavespirtu/>
+ * (c) markavespiritu project <http://github.com/markavespiritu/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace markavespirtu\user\controllers;
+namespace markavespiritu\user\controllers;
 
-use markavespirtu\user\Finder;
-use markavespirtu\user\models\Profile;
-use markavespirtu\user\models\SettingsForm;
-use markavespirtu\user\models\User;
-use markavespirtu\user\Module;
-use markavespirtu\user\traits\AjaxValidationTrait;
-use markavespirtu\user\traits\EventTrait;
+use markavespiritu\user\Finder;
+use markavespiritu\user\models\Profile;
+use markavespiritu\user\models\SettingsForm;
+use markavespiritu\user\models\User;
+use markavespiritu\user\Module;
+use markavespiritu\user\traits\AjaxValidationTrait;
+use markavespiritu\user\traits\EventTrait;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
@@ -27,7 +27,7 @@ use yii\web\NotFoundHttpException;
 /**
  * SettingsController manages updating user settings (e.g. profile, email and password).
  *
- * @property \markavespirtu\user\Module $module
+ * @property \markavespiritu\user\Module $module
  *
  * @author Dmitry Erofeev <dmeroff@gmail.com>
  */
@@ -38,61 +38,61 @@ class SettingsController extends Controller
 
     /**
      * Event is triggered before updating user's profile.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_BEFORE_PROFILE_UPDATE = 'beforeProfileUpdate';
 
     /**
      * Event is triggered after updating user's profile.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_AFTER_PROFILE_UPDATE = 'afterProfileUpdate';
 
     /**
      * Event is triggered before updating user's account settings.
-     * Triggered with \markavespirtu\user\events\FormEvent.
+     * Triggered with \markavespiritu\user\events\FormEvent.
      */
     const EVENT_BEFORE_ACCOUNT_UPDATE = 'beforeAccountUpdate';
 
     /**
      * Event is triggered after updating user's account settings.
-     * Triggered with \markavespirtu\user\events\FormEvent.
+     * Triggered with \markavespiritu\user\events\FormEvent.
      */
     const EVENT_AFTER_ACCOUNT_UPDATE = 'afterAccountUpdate';
 
     /**
      * Event is triggered before changing users' email address.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_BEFORE_CONFIRM = 'beforeConfirm';
 
     /**
      * Event is triggered after changing users' email address.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_AFTER_CONFIRM = 'afterConfirm';
 
     /**
      * Event is triggered before disconnecting social account from user.
-     * Triggered with \markavespirtu\user\events\ConnectEvent.
+     * Triggered with \markavespiritu\user\events\ConnectEvent.
      */
     const EVENT_BEFORE_DISCONNECT = 'beforeDisconnect';
 
     /**
      * Event is triggered after disconnecting social account from user.
-     * Triggered with \markavespirtu\user\events\ConnectEvent.
+     * Triggered with \markavespiritu\user\events\ConnectEvent.
      */
     const EVENT_AFTER_DISCONNECT = 'afterDisconnect';
 
     /**
      * Event is triggered before deleting user's account.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_BEFORE_DELETE = 'beforeDelete';
 
     /**
      * Event is triggered after deleting user's account.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_AFTER_DELETE = 'afterDelete';
 

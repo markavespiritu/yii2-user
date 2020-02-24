@@ -1,18 +1,18 @@
 <?php
 
 /*
- * This file is part of the markavespirtu project.
+ * This file is part of the markavespiritu project.
  *
- * (c) markavespirtu project <http://github.com/markavespirtu/>
+ * (c) markavespiritu project <http://github.com/markavespiritu/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace markavespirtu\user\models;
+namespace markavespiritu\user\models;
 
-use markavespirtu\user\Finder;
-use markavespirtu\user\Mailer;
+use markavespiritu\user\Finder;
+use markavespiritu\user\Mailer;
 use yii\base\Model;
 
 /**

@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the markavespirtu project.
+ * This file is part of the markavespiritu project.
  *
- * (c) markavespirtu project <http://github.com/markavespirtu>
+ * (c) markavespiritu project <http://github.com/markavespiritu>
  *
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
@@ -15,7 +15,7 @@ use yii\widgets\ActiveForm;
 /**
  * @var yii\web\View $this
  * @var yii\widgets\ActiveForm $form
- * @var markavespirtu\user\models\RecoveryForm $model
+ * @var markavespiritu\user\models\RecoveryForm $model
  */
 
 $this->title = Yii::t('user', 'Reset your password');

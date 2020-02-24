@@ -1,14 +1,14 @@
 <?php
 
-namespace markavespirtu\user\traits;
+namespace markavespiritu\user\traits;
 
-use markavespirtu\user\Module;
+use markavespiritu\user\Module;
 
 /**
  * Trait ModuleTrait
  *
  * @property-read Module $module
- * @package markavespirtu\user\traits
+ * @package markavespiritu\user\traits
  */
 trait ModuleTrait
 {

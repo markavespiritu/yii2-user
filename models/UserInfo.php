@@ -1,6 +1,6 @@
 <?php
 
-namespace markavespirtu\user\models;
+namespace markavespiritu\user\models;
 
 use Yii;
 
@@ -14,7 +14,7 @@ class UserInfo extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'userinfo';
+        return 'user_info';
     }
 
     /**

@@ -1,22 +1,22 @@
 <?php
 
 /*
- * This file is part of the markavespirtu project.
+ * This file is part of the markavespiritu project.
  *
- * (c) markavespirtu project <http://github.com/markavespirtu/>
+ * (c) markavespiritu project <http://github.com/markavespiritu/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace markavespirtu\user\controllers;
+namespace markavespiritu\user\controllers;
 
-use markavespirtu\user\Finder;
-use markavespirtu\user\models\RegistrationForm;
-use markavespirtu\user\models\ResendForm;
-use markavespirtu\user\models\User;
-use markavespirtu\user\traits\AjaxValidationTrait;
-use markavespirtu\user\traits\EventTrait;
+use markavespiritu\user\Finder;
+use markavespiritu\user\models\RegistrationForm;
+use markavespiritu\user\models\ResendForm;
+use markavespiritu\user\models\User;
+use markavespiritu\user\traits\AjaxValidationTrait;
+use markavespiritu\user\traits\EventTrait;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -25,7 +25,7 @@ use yii\web\NotFoundHttpException;
  * RegistrationController is responsible for all registration process, which includes registration of a new account,
  * resending confirmation tokens, email confirmation and registration via social networks.
  *
- * @property \markavespirtu\user\Module $module
+ * @property \markavespiritu\user\Module $module
  *
  * @author Dmitry Erofeev <dmeroff@gmail.com>
  */
@@ -36,49 +36,49 @@ class RegistrationController extends Controller
 
     /**
      * Event is triggered after creating RegistrationForm class.
-     * Triggered with \markavespirtu\user\events\FormEvent.
+     * Triggered with \markavespiritu\user\events\FormEvent.
      */
     const EVENT_BEFORE_REGISTER = 'beforeRegister';
 
     /**
      * Event is triggered after successful registration.
-     * Triggered with \markavespirtu\user\events\FormEvent.
+     * Triggered with \markavespiritu\user\events\FormEvent.
      */
     const EVENT_AFTER_REGISTER = 'afterRegister';
 
     /**
      * Event is triggered before connecting user to social account.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_BEFORE_CONNECT = 'beforeConnect';
 
     /**
      * Event is triggered after connecting user to social account.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_AFTER_CONNECT = 'afterConnect';
 
     /**
      * Event is triggered before confirming user.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_BEFORE_CONFIRM = 'beforeConfirm';
 
     /**
      * Event is triggered before confirming user.
-     * Triggered with \markavespirtu\user\events\UserEvent.
+     * Triggered with \markavespiritu\user\events\UserEvent.
      */
     const EVENT_AFTER_CONFIRM = 'afterConfirm';
 
     /**
      * Event is triggered after creating ResendForm class.
-     * Triggered with \markavespirtu\user\events\FormEvent.
+     * Triggered with \markavespiritu\user\events\FormEvent.
      */
     const EVENT_BEFORE_RESEND = 'beforeResend';
 
     /**
      * Event is triggered after successful resending of confirmation email.
-     * Triggered with \markavespirtu\user\events\FormEvent.
+     * Triggered with \markavespiritu\user\events\FormEvent.
      */
     const EVENT_AFTER_RESEND = 'afterResend';
 

@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the markavespirtu project.
+ * This file is part of the markavespiritu project.
  *
- * (c) markavespirtu project <http://github.com/markavespirtu>
+ * (c) markavespiritu project <http://github.com/markavespiritu>
  *
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
-use markavespirtu\user\widgets\Connect;
-use markavespirtu\user\models\LoginForm;
+use markavespiritu\user\widgets\Connect;
+use markavespiritu\user\models\LoginForm;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /**
  * @var yii\web\View $this
- * @var markavespirtu\user\models\LoginForm $model
- * @var markavespirtu\user\Module $module
+ * @var markavespiritu\user\models\LoginForm $model
+ * @var markavespiritu\user\Module $module
  */
 
 $this->title = Yii::t('user', 'Sign in');

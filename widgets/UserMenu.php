@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the markavespirtu project.
+ * This file is part of the markavespiritu project.
  *
- * (c) markavespirtu project <http://github.com/markavespirtu>
+ * (c) markavespiritu project <http://github.com/markavespiritu>
  *
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
-namespace markavespirtu\user\widgets;
+namespace markavespiritu\user\widgets;
 
 use yii\widgets\Menu;
 use Yii;
@@ -21,7 +21,7 @@ use yii\base\Widget;
 class UserMenu extends Widget
 {
     
-    /** @array \markavespirtu\user\models\RegistrationForm */
+    /** @array \markavespiritu\user\models\RegistrationForm */
     public $items;
     
     public function init()

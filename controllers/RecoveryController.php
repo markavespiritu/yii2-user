@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the markavespirtu project.
+ * This file is part of the markavespiritu project.
  *
- * (c) markavespirtu project <http://github.com/markavespirtu/>
+ * (c) markavespiritu project <http://github.com/markavespiritu/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace markavespirtu\user\controllers;
+namespace markavespiritu\user\controllers;
 
-use markavespirtu\user\Finder;
-use markavespirtu\user\models\RecoveryForm;
-use markavespirtu\user\models\Token;
-use markavespirtu\user\traits\AjaxValidationTrait;
-use markavespirtu\user\traits\EventTrait;
+use markavespiritu\user\Finder;
+use markavespiritu\user\models\RecoveryForm;
+use markavespiritu\user\models\Token;
+use markavespiritu\user\traits\AjaxValidationTrait;
+use markavespiritu\user\traits\EventTrait;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -23,7 +23,7 @@ use yii\web\NotFoundHttpException;
 /**
  * RecoveryController manages password recovery process.
  *
- * @property \markavespirtu\user\Module $module
+ * @property \markavespiritu\user\Module $module
  *
  * @author Dmitry Erofeev <dmeroff@gmail.com>
  */
@@ -34,37 +34,37 @@ class RecoveryController extends Controller
 
     /**
      * Event is triggered before requesting password reset.
-     * Triggered with \markavespirtu\user\events\FormEvent.
+     * Triggered with \markavespiritu\user\events\FormEvent.
      */
     const EVENT_BEFORE_REQUEST = 'beforeRequest';
 
     /**
      * Event is triggered after requesting password reset.
-     * Triggered with \markavespirtu\user\events\FormEvent.
+     * Triggered with \markavespiritu\user\events\FormEvent.
      */
     const EVENT_AFTER_REQUEST = 'afterRequest';
 
     /**
      * Event is triggered before validating recovery token.
-     * Triggered with \markavespirtu\user\events\ResetPasswordEvent. May not have $form property set.
+     * Triggered with \markavespiritu\user\events\ResetPasswordEvent. May not have $form property set.
      */
     const EVENT_BEFORE_TOKEN_VALIDATE = 'beforeTokenValidate';
 
     /**
      * Event is triggered after validating recovery token.
-     * Triggered with \markavespirtu\user\events\ResetPasswordEvent. May not have $form property set.
+     * Triggered with \markavespiritu\user\events\ResetPasswordEvent. May not have $form property set.
      */
     const EVENT_AFTER_TOKEN_VALIDATE = 'afterTokenValidate';
 
     /**
      * Event is triggered before resetting password.
-     * Triggered with \markavespirtu\user\events\ResetPasswordEvent.
+     * Triggered with \markavespiritu\user\events\ResetPasswordEvent.
      */
     const EVENT_BEFORE_RESET = 'beforeReset';
 
     /**
      * Event is triggered after resetting password.
-     * Triggered with \markavespirtu\user\events\ResetPasswordEvent.
+     * Triggered with \markavespiritu\user\events\ResetPasswordEvent.
      */
     const EVENT_AFTER_RESET = 'afterReset';
 

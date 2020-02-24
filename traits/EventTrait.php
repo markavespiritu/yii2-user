@@ -1,27 +1,27 @@
 <?php
 
 /*
- * This file is part of the markavespirtu project.
+ * This file is part of the markavespiritu project.
  *
- * (c) markavespirtu project <http://github.com/markavespirtu/>
+ * (c) markavespiritu project <http://github.com/markavespiritu/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace markavespirtu\user\traits;
+namespace markavespiritu\user\traits;
 
-use markavespirtu\user\events\AuthEvent;
-use markavespirtu\user\events\ConnectEvent;
-use markavespirtu\user\events\FormEvent;
-use markavespirtu\user\events\ProfileEvent;
-use markavespirtu\user\events\ResetPasswordEvent;
-use markavespirtu\user\events\UserEvent;
-use markavespirtu\user\models\Account;
-use markavespirtu\user\models\Profile;
-use markavespirtu\user\models\RecoveryForm;
-use markavespirtu\user\models\Token;
-use markavespirtu\user\models\User;
+use markavespiritu\user\events\AuthEvent;
+use markavespiritu\user\events\ConnectEvent;
+use markavespiritu\user\events\FormEvent;
+use markavespiritu\user\events\ProfileEvent;
+use markavespiritu\user\events\ResetPasswordEvent;
+use markavespiritu\user\events\UserEvent;
+use markavespiritu\user\models\Account;
+use markavespiritu\user\models\Profile;
+use markavespiritu\user\models\RecoveryForm;
+use markavespiritu\user\models\Token;
+use markavespiritu\user\models\User;
 use yii\authclient\ClientInterface;
 use yii\base\Model;
 

@@ -1,7 +1,7 @@
 <?php
 
 use yii\db\Query;
-use markavespirtu\user\migrations\Migration;
+use markavespiritu\user\migrations\Migration;
 
 class m150614_103145_update_social_account_table extends Migration
 {

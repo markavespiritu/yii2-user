@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the markavespirtu project.
+ * This file is part of the markavespiritu project.
  *
- * (c) markavespirtu project <http://github.com/markavespirtu/>
+ * (c) markavespiritu project <http://github.com/markavespiritu/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-use markavespirtu\user\migrations\Migration;
+use markavespiritu\user\migrations\Migration;
 
 class m151218_234654_add_timezone_to_profile extends Migration
 {

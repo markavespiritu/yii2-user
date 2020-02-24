@@ -24,7 +24,7 @@ Add following lines to your main configuration file:
 ```php
 'modules' => [
     'user' => [
-        'class' => 'markavespirtu\user\Module',
+        'class' => 'markavespiritu\user\Module',
     ],
 ],
 ```
@@ -36,7 +36,7 @@ migrations. Make sure that you have properly configured `db` application compone
 and run the following command:
 
 ```bash
-$ php yii migrate/up --migrationPath=@vendor/markavespirtu/yii2-user/migrations
+$ php yii migrate/up --migrationPath=@vendor/markavespiritu/yii2-user/migrations
 ```
 
 ## Where do I go now?
