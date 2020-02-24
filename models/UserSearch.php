@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Dektrium project.
+ * This file is part of the markavespirtu project.
  *
- * (c) Dektrium project <http://github.com/dektrium/>
+ * (c) markavespirtu project <http://github.com/markavespirtu/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace dektrium\user\models;
+namespace markavespirtu\user\models;
 
-use dektrium\user\Finder;
+use markavespirtu\user\Finder;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
@@ -41,6 +41,12 @@ class UserSearch extends Model
 
     /** @var Finder */
     protected $finder;
+
+    public $fullName;
+
+    public $employeeId;
+
+    public $position;
 
     /**
      * @param Finder $finder
@@ -72,6 +78,9 @@ class UserSearch extends Model
             'created_at'      => Yii::t('user', 'Registration time'),
             'last_login_at'   => Yii::t('user', 'Last login'),
             'registration_ip' => Yii::t('user', 'Registration ip'),
+            'fullName'      => Yii::t('user', 'Full Name'),
+            'employeeId'      => Yii::t('user', 'Employee ID'),
+            'position'      => Yii::t('user', 'Position'),
         ];
     }
 
@@ -89,6 +98,18 @@ class UserSearch extends Model
             'sort' => ['defaultOrder' => ['created_at' => SORT_DESC]],
         ]);
 
+        $query->joinWith('userinfo');
+        if(isset($additionalParams['and'])){
+            foreach($additionalParams['and'] as $additionalParams):
+                $query->andWhere($additionalParams);
+            endforeach;
+        }
+        if(isset($additionalParams['or'])){
+            foreach($additionalParams['or'] as $additionalParams):
+                $query->orWhere($additionalParams);
+            endforeach;
+        }
+
         if (!($this->load($params) && $this->validate())) {
             return $dataProvider;
         }
@@ -104,7 +125,10 @@ class UserSearch extends Model
         $query->andFilterWhere(['like', $table_name . '.username', $this->username])
               ->andFilterWhere(['like', $table_name . '.email', $this->email])
               ->andFilterWhere([$table_name . '.id' => $this->id])
-              ->andFilterWhere([$table_name . '.registration_ip' => $this->registration_ip]);
+              ->andFilterWhere([$table_name . '.registration_ip' => $this->registration_ip])
+              ->andFilterWhere(['like', 'userinfo.emp_no', $this->employeeId])
+              ->andFilterWhere(['like', 'userinfo.position', $this->position])
+              ->andFilterWhere(['like', 'concat(userinfo.firstname," ",userinfo.middlename," ",userinfo.lastname," ",userinfo.extname)', $this->fullName]);
 
         return $dataProvider;
     }

@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of the Dektrium project.
+ * This file is part of the markavespirtu project.
  *
- * (c) Dektrium project <http://github.com/dektrium/>
+ * (c) markavespirtu project <http://github.com/markavespirtu/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace dektrium\user\migrations;
+namespace markavespirtu\user\migrations;
 
 use Yii;
 

@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the Dektrium project.
+ * This file is part of the markavespirtu project.
  *
- * (c) Dektrium project <http://github.com/dektrium>
+ * (c) markavespirtu project <http://github.com/markavespirtu>
  *
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
@@ -12,9 +12,9 @@
 use yii\helpers\Html;
 
 /**
- * @var dektrium\user\Module          $module
- * @var dektrium\user\models\User     $user
- * @var dektrium\user\models\Password $password
+ * @var markavespirtu\user\Module          $module
+ * @var markavespirtu\user\models\User     $user
+ * @var markavespirtu\user\models\Password $password
  */
 
 ?>

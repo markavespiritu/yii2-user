@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Dektrium project.
+ * This file is part of the markavespirtu project.
  *
- * (c) Dektrium project <http://github.com/dektrium>
+ * (c) markavespirtu project <http://github.com/markavespirtu>
  *
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
 /**
- * @var dektrium\user\models\User   $user
- * @var dektrium\user\models\Token  $token
+ * @var markavespirtu\user\models\User   $user
+ * @var markavespirtu\user\models\Token  $token
  */
 ?>
 <?= Yii::t('user', 'Hello') ?>,

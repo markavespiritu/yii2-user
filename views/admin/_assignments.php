@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Dektrium project
+ * This file is part of the markavespiritu project
  *
- * (c) Dektrium project <http://github.com/dektrium>
+ * (c) markavespiritu project <http://github.com/markavespiritu>
  *
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
-use dektrium\rbac\widgets\Assignments;
+use markavespiritu\rbac\widgets\Assignments;
 
 /**
  * @var yii\web\View $this
- * @var dektrium\user\models\User $user
+ * @var markavespiritu\user\models\User $user
  */
 ?>
 
-<?php $this->beginContent('@dektrium/user/views/admin/update.php', ['user' => $user]) ?>
+<?php $this->beginContent('@markavespiritu/user/views/admin/update.php', ['user' => $user]) ?>
 
 <?= yii\bootstrap\Alert::widget([
     'options' => [

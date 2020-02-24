@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Dektrium project.
+ * This file is part of the markavespirtu project.
  *
- * (c) Dektrium project <http://github.com/dektrium/>
+ * (c) markavespirtu project <http://github.com/markavespirtu/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace dektrium\user\models;
+namespace markavespirtu\user\models;
 
-use dektrium\user\helpers\Password;
-use dektrium\user\Mailer;
-use dektrium\user\Module;
-use dektrium\user\traits\ModuleTrait;
+use markavespirtu\user\helpers\Password;
+use markavespirtu\user\Mailer;
+use markavespirtu\user\Module;
+use markavespirtu\user\traits\ModuleTrait;
 use Yii;
 use yii\base\Model;
 

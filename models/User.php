@@ -1,21 +1,21 @@
 <?php
 
 /*
- * This file is part of the Dektrium project.
+ * This file is part of the markavespirtu project.
  *
- * (c) Dektrium project <http://github.com/dektrium/>
+ * (c) markavespirtu project <http://github.com/markavespirtu/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace dektrium\user\models;
+namespace markavespirtu\user\models;
 
-use dektrium\user\Finder;
-use dektrium\user\helpers\Password;
-use dektrium\user\Mailer;
-use dektrium\user\Module;
-use dektrium\user\traits\ModuleTrait;
+use markavespirtu\user\Finder;
+use markavespirtu\user\helpers\Password;
+use markavespirtu\user\Mailer;
+use markavespirtu\user\Module;
+use markavespirtu\user\traits\ModuleTrait;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
@@ -78,6 +78,8 @@ class User extends ActiveRecord implements IdentityInterface
     /** @var Profile|null */
     private $_profile;
 
+    public  $_userinfo;
+
     /** @var string Default username regexp */
     public static $usernameRegexp = '/^[-a-zA-Z0-9_\.@]+$/';
 
@@ -132,6 +134,14 @@ class User extends ActiveRecord implements IdentityInterface
     public function getProfile()
     {
         return $this->hasOne($this->module->modelMap['Profile'], ['user_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUserinfo()
+    {
+        return $this->hasOne(UserInfo::className(), ['user_id' => 'id']);
     }
 
     /**
@@ -195,6 +205,12 @@ class User extends ActiveRecord implements IdentityInterface
             'created_at'        => \Yii::t('user', 'Registration time'),
             'last_login_at'     => \Yii::t('user', 'Last login'),
             'confirmed_at'      => \Yii::t('user', 'Confirmation time'),
+            'lastname'          => \Yii::t('user', 'Last Name'),
+            'firstname'         => \Yii::t('user', 'First Name'),
+            'middlename'        => \Yii::t('user', 'Middle Name'),
+            'extname'           => \Yii::t('user', 'Suffix'),
+            'emp_no'            => \Yii::t('user', 'Employee ID'),
+            'position'          => \Yii::t('user', 'Position'),
         ];
     }
 
@@ -545,6 +561,11 @@ class User extends ActiveRecord implements IdentityInterface
                 $this->_profile = \Yii::createObject(Profile::className());
             }
             $this->_profile->link('user', $this);
+
+            if ($this->_userinfo == null) {
+                $this->_userinfo = \Yii::createObject(UserInfo::className());
+            } 
+            $this->_userinfo->link('user', $this);
         }
     }
 
@@ -564,5 +585,20 @@ class User extends ActiveRecord implements IdentityInterface
     public static function findIdentityByAccessToken($token, $type = null)
     {
         throw new NotSupportedException('Method "' . __CLASS__ . '::' . __METHOD__ . '" is not implemented.');
+    }
+
+    public function getFullName()
+    {
+        return $this->userinfo->firstname.' '.$this->userinfo->middlename.' '.$this->userinfo->lastname.' '.$this->userinfo->extname;
+    }
+
+    public function getEmployeeId()
+    {
+        return $this->userinfo->emp_no;
+    }
+
+    public function getPosition()
+    {
+        return $this->userinfo->position;
     }
 }

@@ -1,20 +1,20 @@
 <?php
 
 /*
- * This file is part of the Dektrium project.
+ * This file is part of the markavespirtu project.
  *
- * (c) Dektrium project <http://github.com/dektrium/>
+ * (c) markavespirtu project <http://github.com/markavespirtu/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace dektrium\user\models;
+namespace markavespirtu\user\models;
 
-use dektrium\user\clients\ClientInterface;
-use dektrium\user\Finder;
-use dektrium\user\models\query\AccountQuery;
-use dektrium\user\traits\ModuleTrait;
+use markavespirtu\user\clients\ClientInterface;
+use markavespirtu\user\Finder;
+use markavespirtu\user\models\query\AccountQuery;
+use markavespirtu\user\traits\ModuleTrait;
 use yii\authclient\ClientInterface as BaseClientInterface;
 use yii\db\ActiveRecord;
 use yii\helpers\Json;

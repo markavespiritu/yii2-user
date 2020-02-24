@@ -1,23 +1,23 @@
 <?php
 
 /*
- * This file is part of the Dektrium project.
+ * This file is part of the markavespirtu project.
  *
- * (c) Dektrium project <http://github.com/dektrium>
+ * (c) markavespirtu project <http://github.com/markavespirtu>
  *
  * For the full copyright and license information, please view the LICENSE.md
  * file that was distributed with this source code.
  */
 
-use dektrium\user\widgets\Connect;
-use dektrium\user\models\LoginForm;
+use markavespirtu\user\widgets\Connect;
+use markavespirtu\user\models\LoginForm;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /**
  * @var yii\web\View $this
- * @var dektrium\user\models\LoginForm $model
- * @var dektrium\user\Module $module
+ * @var markavespirtu\user\models\LoginForm $model
+ * @var markavespirtu\user\Module $module
  */
 
 $this->title = Yii::t('user', 'Sign in');

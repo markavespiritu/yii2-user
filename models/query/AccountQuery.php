@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Dektrium project.
+ * This file is part of the markavespirtu project.
  *
- * (c) Dektrium project <http://github.com/dektrium/>
+ * (c) markavespirtu project <http://github.com/markavespirtu/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace dektrium\user\models\query;
+namespace markavespirtu\user\models\query;
 
-use dektrium\user\models\Account;
+use markavespirtu\user\models\Account;
 use yii\authclient\ClientInterface;
 use yii\db\ActiveQuery;
 

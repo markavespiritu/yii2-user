@@ -1,17 +1,17 @@
 <?php
 
 /*
- * This file is part of the Dektrium project.
+ * This file is part of the markavespirtu project.
  *
- * (c) Dektrium project <http://github.com/dektrium/>
+ * (c) markavespirtu project <http://github.com/markavespirtu/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace dektrium\user\models;
+namespace markavespirtu\user\models;
 
-use dektrium\user\traits\ModuleTrait;
+use markavespirtu\user\traits\ModuleTrait;
 use Yii;
 use yii\base\Model;
 
@@ -23,6 +23,30 @@ use yii\base\Model;
 class RegistrationForm extends Model
 {
     use ModuleTrait;
+    /**
+     * @var string First Name
+     */
+    public $firstname;
+
+    /**
+     * @var string Last Name
+     */
+    public $lastname;
+
+    /**
+     * @var string Middle Name
+     */
+    public $middlename;
+
+    /**
+     * @var string Extension Name
+     */
+    public $extname;
+
+    /**
+     * @var string Employee Id
+     */
+    public $emp_no;
     /**
      * @var string User email address
      */
@@ -67,6 +91,8 @@ class RegistrationForm extends Model
                 'targetClass' => $user,
                 'message' => Yii::t('user', 'This email address has already been taken')
             ],
+            [['lastname', 'firstname', 'emp_no', 'position'], 'required'],
+            [['lastname', 'firstname', 'middlename', 'EMP_ID', 'SUFFIX'], 'string', 'max' => 255],
             // password rules
             'passwordRequired' => ['password', 'required', 'skipOnEmpty' => $this->module->enableGeneratingPassword],
             'passwordLength'   => ['password', 'string', 'min' => 6, 'max' => 72],
@@ -82,6 +108,11 @@ class RegistrationForm extends Model
             'email'    => Yii::t('user', 'Email'),
             'username' => Yii::t('user', 'Username'),
             'password' => Yii::t('user', 'Password'),
+            'lastname' => 'Last Name',
+            'firstname' => 'First Name',
+            'middlename' => 'Middle Name',
+            'extname' => 'Suffix',
+            'emp_no' => 'Employee ID'
         ];
     }
 

@@ -1,24 +1,24 @@
 <?php
 
 /*
- * This file is part of the Dektrium project.
+ * This file is part of the markavespirtu project.
  *
- * (c) Dektrium project <http://github.com/dektrium/>
+ * (c) markavespirtu project <http://github.com/markavespirtu/>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace dektrium\user\controllers;
+namespace markavespirtu\user\controllers;
 
-use dektrium\user\filters\AccessRule;
-use dektrium\user\Finder;
-use dektrium\user\models\Profile;
-use dektrium\user\models\User;
-use dektrium\user\models\UserSearch;
-use dektrium\user\helpers\Password;
-use dektrium\user\Module;
-use dektrium\user\traits\EventTrait;
+use markavespirtu\user\filters\AccessRule;
+use markavespirtu\user\Finder;
+use markavespirtu\user\models\Profile;
+use markavespirtu\user\models\User;
+use markavespirtu\user\models\UserSearch;
+use markavespirtu\user\helpers\Password;
+use markavespirtu\user\Module;
+use markavespirtu\user\traits\EventTrait;
 use yii;
 use yii\base\ExitException;
 use yii\base\Model;
@@ -45,97 +45,97 @@ class AdminController extends Controller
 
     /**
      * Event is triggered before creating new user.
-     * Triggered with \dektrium\user\events\UserEvent.
+     * Triggered with \markavespirtu\user\events\UserEvent.
      */
     const EVENT_BEFORE_CREATE = 'beforeCreate';
 
     /**
      * Event is triggered after creating new user.
-     * Triggered with \dektrium\user\events\UserEvent.
+     * Triggered with \markavespirtu\user\events\UserEvent.
      */
     const EVENT_AFTER_CREATE = 'afterCreate';
 
     /**
      * Event is triggered before updating existing user.
-     * Triggered with \dektrium\user\events\UserEvent.
+     * Triggered with \markavespirtu\user\events\UserEvent.
      */
     const EVENT_BEFORE_UPDATE = 'beforeUpdate';
 
     /**
      * Event is triggered after updating existing user.
-     * Triggered with \dektrium\user\events\UserEvent.
+     * Triggered with \markavespirtu\user\events\UserEvent.
      */
     const EVENT_AFTER_UPDATE = 'afterUpdate';
 
     /**
      * Event is triggered before impersonating as another user.
-     * Triggered with \dektrium\user\events\UserEvent.
+     * Triggered with \markavespirtu\user\events\UserEvent.
      */
     const EVENT_BEFORE_IMPERSONATE = 'beforeImpersonate';
 
     /**
      * Event is triggered after impersonating as another user.
-     * Triggered with \dektrium\user\events\UserEvent.
+     * Triggered with \markavespirtu\user\events\UserEvent.
      */
     const EVENT_AFTER_IMPERSONATE = 'afterImpersonate';
 
     /**
      * Event is triggered before updating existing user's profile.
-     * Triggered with \dektrium\user\events\UserEvent.
+     * Triggered with \markavespirtu\user\events\UserEvent.
      */
     const EVENT_BEFORE_PROFILE_UPDATE = 'beforeProfileUpdate';
 
     /**
      * Event is triggered after updating existing user's profile.
-     * Triggered with \dektrium\user\events\UserEvent.
+     * Triggered with \markavespirtu\user\events\UserEvent.
      */
     const EVENT_AFTER_PROFILE_UPDATE = 'afterProfileUpdate';
 
     /**
      * Event is triggered before confirming existing user.
-     * Triggered with \dektrium\user\events\UserEvent.
+     * Triggered with \markavespirtu\user\events\UserEvent.
      */
     const EVENT_BEFORE_CONFIRM = 'beforeConfirm';
 
     /**
      * Event is triggered after confirming existing user.
-     * Triggered with \dektrium\user\events\UserEvent.
+     * Triggered with \markavespirtu\user\events\UserEvent.
      */
     const EVENT_AFTER_CONFIRM = 'afterConfirm';
 
     /**
      * Event is triggered before deleting existing user.
-     * Triggered with \dektrium\user\events\UserEvent.
+     * Triggered with \markavespirtu\user\events\UserEvent.
      */
     const EVENT_BEFORE_DELETE = 'beforeDelete';
 
     /**
      * Event is triggered after deleting existing user.
-     * Triggered with \dektrium\user\events\UserEvent.
+     * Triggered with \markavespirtu\user\events\UserEvent.
      */
     const EVENT_AFTER_DELETE = 'afterDelete';
 
     /**
      * Event is triggered before blocking existing user.
-     * Triggered with \dektrium\user\events\UserEvent.
+     * Triggered with \markavespirtu\user\events\UserEvent.
      */
     const EVENT_BEFORE_BLOCK = 'beforeBlock';
 
     /**
      * Event is triggered after blocking existing user.
-     * Triggered with \dektrium\user\events\UserEvent.
+     * Triggered with \markavespirtu\user\events\UserEvent.
      */
     const EVENT_AFTER_BLOCK = 'afterBlock';
 
     /**
      * Event is triggered before unblocking existing user.
-     * Triggered with \dektrium\user\events\UserEvent.
+     * Triggered with \markavespirtu\user\events\UserEvent.
      */
     const EVENT_BEFORE_UNBLOCK = 'beforeUnblock';
 
     /**
      * Event is triggered after unblocking existing user.
-     * Triggered with \dektrium\user\events\UserEvent.
+     * Triggered with \markavespirtu\user\events\UserEvent.
      */
     const EVENT_AFTER_UNBLOCK = 'afterUnblock';
 
@@ -230,6 +230,9 @@ class AdminController extends Controller
         $this->performAjaxValidation($user);
 
         $this->trigger(self::EVENT_BEFORE_CREATE, $event);
+        $userinfo = new UserInfo();
+        $userinfo->load(Yii::$app->request->post());
+        $user->_userinfo = $userinfo;
         if ($user->load(\Yii::$app->request->post()) && $user->create()) {
             \Yii::$app->getSession()->setFlash('success', \Yii::t('user', 'User has been created'));
             $this->trigger(self::EVENT_AFTER_CREATE, $event);
@@ -238,6 +241,7 @@ class AdminController extends Controller
 
         return $this->render('create', [
             'user' => $user,
+            'userinfo' => $userinfo,
         ]);
     }
 
@@ -258,7 +262,7 @@ class AdminController extends Controller
         $this->performAjaxValidation($user);
 
         $this->trigger(self::EVENT_BEFORE_UPDATE, $event);
-        if ($user->load(\Yii::$app->request->post()) && $user->save()) {
+        if ($user->load(\Yii::$app->request->post()) && $user->save() && $user->userinfo->load(Yii::$app->request->post()) && $user->userinfo->save()) {
             \Yii::$app->getSession()->setFlash('success', \Yii::t('user', 'Account details have been updated'));
             $this->trigger(self::EVENT_AFTER_UPDATE, $event);
             return $this->refresh();
@@ -266,6 +270,7 @@ class AdminController extends Controller
 
         return $this->render('_account', [
             'user' => $user,
+            'userinfo' => $user->userinfo,
         ]);
     }
 
@@ -361,7 +366,7 @@ class AdminController extends Controller
     }
 
     /**
-     * If "dektrium/yii2-rbac" extension is installed, this page displays form
+     * If "markavespirtu/yii2-rbac" extension is installed, this page displays form
      * where user can assign multiple auth items to user.
      *
      * @param int $id
@@ -371,7 +376,7 @@ class AdminController extends Controller
      */
     public function actionAssignments($id)
     {
-        if (!isset(\Yii::$app->extensions['dektrium/yii2-rbac'])) {
+        if (!isset(\Yii::$app->extensions['markavespirtu/yii2-rbac'])) {
             throw new NotFoundHttpException();
         }
         Url::remember('', 'actions-redirect');
